@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171821">
+<title>My Life Studio | הבית שלך לכל מה שחשוב</title>
+<style>
+:root{--bg:#101117;--panel:#191b25;--panel2:#202330;--line:#303342;--text:#f5f4f8;--muted:#a7a8b8;--purple:#b7a4ff;--mint:#9ce5ce;--peach:#ffc9ad;--yellow:#f6df8a;--radius:22px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#27223e 0,transparent 35%),var(--bg);color:var(--text);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.5}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1440px;margin:auto;padding:24px;display:grid;grid-template-columns:245px 1fr;gap:24px;min-height:100vh}
+.sidebar{background:rgba(25,27,37,.88);border:1px solid var(--line);border-radius:26px;padding:22px;height:calc(100vh - 48px);position:sticky;top:24px;display:flex;flex-direction:column}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:32px}.brand-mark{width:45px;height:45px;border-radius:15px;background:linear-gradient(135deg,var(--purple),var(--mint));display:grid;place-items:center;color:#191824;font-size:23px;font-weight:bold}.brand strong{display:block;font-size:16px;letter-spacing:.5px}.brand small{color:var(--muted)}
+.nav-label{font-size:11px;color:#7f8195;font-weight:bold;margin:14px 8px 8px}.nav button{width:100%;border:0;background:transparent;color:#c9c9d6;text-align:right;padding:12px 13px;border-radius:13px;margin:2px 0;display:flex;align-items:center;gap:12px}.nav button:hover,.nav button.active{background:#2c2a40;color:#fff}.nav .ico{font-size:19px;width:24px;text-align:center}.side-note{margin-top:auto;padding:16px;border-radius:17px;background:linear-gradient(145deg,#2c2940,#202b32);font-size:13px;color:#dedbea}.side-note b{display:block;margin-bottom:5px}
+main{min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:2px 0 25px}.eyebrow{color:var(--mint);font-size:12px;font-weight:bold;letter-spacing:.7px}.topbar h1{font-size:clamp(25px,3vw,36px);margin:4px 0}.sub{color:var(--muted);margin:0}.date-pill{padding:11px 15px;border:1px solid var(--line);border-radius:14px;color:#d5d5e2;background:#171923;white-space:nowrap}
+.hero{padding:27px;border-radius:var(--radius);background:linear-gradient(115deg,#302849,#24353b);border:1px solid #49445e;display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px;overflow:hidden;position:relative}.hero:after{content:"♫";font-size:150px;line-height:1;color:#ffffff0b;position:absolute;left:28px;bottom:-48px}.hero h2{font-size:24px;margin:5px 0}.hero p{color:#d1d0e1;margin:0 0 16px;max-width:570px}.btn{border:0;background:var(--purple);color:#1b1829;padding:10px 15px;border-radius:12px;font-weight:bold}.btn:hover{filter:brightness(1.08)}.btn.secondary{background:#303342;color:#f5f4f8;border:1px solid #444657}.btn.small{padding:7px 10px;font-size:13px}.hero .hero-symbol{font-size:55px;z-index:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.stat,.card{background:rgba(25,27,37,.92);border:1px solid var(--line);border-radius:var(--radius)}.stat{padding:17px}.stat-top{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}.stat .big{font-size:28px;font-weight:bold;margin-top:9px}.stat .tiny{font-size:12px;color:var(--muted)}.stat-icon{font-size:21px}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.card{padding:21px;margin-bottom:18px}.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.card h3{font-size:17px;margin:0}.card-desc{color:var(--muted);font-size:13px;margin:4px 0 0}.linkbtn{border:0;background:transparent;color:var(--purple);font-size:13px}.task-list,.item-list{display:grid;gap:9px}.task{display:flex;align-items:center;gap:11px;padding:12px;border-radius:13px;background:#20222d;border:1px solid transparent}.task:hover{border-color:#424458}.task input{accent-color:#b7a4ff;width:17px;height:17px}.task .task-title{flex:1}.task.done .task-title{text-decoration:line-through;color:#7d8092}.tag{font-size:11px;padding:4px 8px;border-radius:8px;white-space:nowrap}.tag.work{background:#38314b;color:#d3c5ff}.tag.music{background:#263d3a;color:#a9ead5}.tag.life{background:#44352f;color:#ffd0b8}
+.progress-row{margin:14px 0}.progress-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}.track{height:8px;background:#303342;border-radius:99px;overflow:hidden}.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--purple),var(--mint));width:0;transition:width .25s}
+.quick-add{display:flex;gap:8px;margin-top:13px}.quick-add input,.field input,.field textarea,.field select,.search{background:#11131b;color:var(--text);border:1px solid #383a4b;border-radius:11px;padding:11px;width:100%;outline:none}.quick-add input:focus,.field input:focus,.field textarea:focus{border-color:var(--purple)}.quick-add input{min-width:0}
+.idea{padding:13px;border-radius:14px;background:#222430;border-right:3px solid var(--peach)}.idea strong{display:block;font-size:14px;margin-bottom:4px}.idea p{margin:0;color:var(--muted);font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+.page{display:none}.page.active{display:block}.section-intro{margin-bottom:18px}.section-intro h2{margin:0 0 5px;font-size:26px}.section-intro p{color:var(--muted);margin:0}.cards-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.project{padding:17px;border-radius:16px;background:#222430;border:1px solid #343647}.project h4{margin:0 0 6px}.project p{color:var(--muted);font-size:13px;margin:0 0 12px;white-space:pre-wrap;overflow-wrap:anywhere}.project-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin-bottom:13px}.field label{display:block;color:#c8c8d5;font-size:13px;margin-bottom:6px}.field textarea{min-height:100px;resize:vertical}.empty{padding:22px;text-align:center;color:var(--muted);background:#20222d;border-radius:14px;font-size:13px}
+.week-grid{display:grid;grid-template-columns:repeat(7,minmax(100px,1fr));gap:9px;overflow-x:auto}.day{background:#222430;border:1px solid #343647;border-radius:14px;padding:12px;min-height:120px}.day strong{font-size:13px}.day small{display:block;color:var(--muted);margin:5px 0 10px}.day span{display:block;background:#34304b;border-radius:8px;padding:7px;margin-top:6px;font-size:12px}
+.note{font-size:12px;color:var(--muted);margin-top:12px}.toast{position:fixed;bottom:20px;left:20px;background:#252839;border:1px solid #50536b;padding:12px 17px;border-radius:12px;opacity:0;transform:translateY(10px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}
+.mobile-nav{display:none}
+@media(max-width:1050px){.app{grid-template-columns:200px 1fr;padding:15px;gap:15px}.sidebar{height:calc(100vh - 30px);top:15px}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+@media(max-width:700px){.app{display:block;padding:12px;padding-bottom:90px}.sidebar{display:none}.topbar{align-items:flex-start}.date-pill{font-size:12px;padding:8px}.hero{padding:20px}.hero-symbol{display:none}.stats{gap:9px}.stat{padding:13px}.stat .big{font-size:24px}.card{padding:16px}.cards-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.mobile-nav{position:fixed;bottom:0;right:0;left:0;display:flex;justify-content:space-around;gap:2px;background:#171821ed;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));z-index:10;backdrop-filter:blur(12px)}.mobile-nav button{background:transparent;border:0;color:#bdbdcd;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px}.mobile-nav button span{font-size:19px}.mobile-nav button.active{color:var(--purple)}.week-grid{grid-template-columns:repeat(7,110px)}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">♫</div><div><strong>MY LIFE STUDIO</strong><small>המרחב האישי שלך</small></div></div>
+  <div class="nav-label">המרחב שלי</div>
+  <nav class="nav" id="sideNav">
+    <button class="active" data-page="home"><span class="ico">⌂</span> מסך הבית</button>
+    <button data-page="planner"><span class="ico">▦</span> משימות ותכנון</button>
+    <button data-page="guitar"><span class="ico">🎸</span> לימודי גיטרה</button>
+    <button data-page="studio"><span class="ico">🎙️</span> פרויקטים באולפן</button>
+    <button data-page="notes"><span class="ico">✍️</span> מחברת יצירה</button>
+    <button data-page="goals"><span class="ico">✧</span> המטרות שלי</button>
+  </nav>
+  <div class="side-note"><b>✨ תזכורת קטנה</b>גם צעד קטן הוא התקדמות. לא צריך להספיק הכול ביום אחד.</div>
+</aside>
+<main>
+<header class="topbar"><div><div class="eyebrow">YOUR DAY, YOUR WAY</div><h1 id="greeting">היי, ברוכה הבאה ✨</h1><p class="sub">כל מה שחשוב לך, במקום אחד.</p></div><div class="date-pill" id="todayDate"></div></header>
+
+<section class="page active" id="page-home">
+  <div class="hero"><div><div class="eyebrow">המרחב היצירתי שלך</div><h2>יום חדש, מקום לרעיונות חדשים.</h2><p>תכנני את היום בקצב שלך, התקדמי בפרויקטים ותשאירי מקום גם לדברים שעושים לך טוב.</p><button class="btn" data-goto="planner">לתכנון היום ←</button></div><div class="hero-symbol">♫</div></div>
+  <div class="stats">
+    <div class="stat"><div class="stat-top"><span>משימות פתוחות</span><span class="stat-icon">☑</span></div><div class="big" id="openCount">0</div><div class="tiny">דברים קטנים שמקדמים אותך</div></div>
+    <div class="stat"><div class="stat-top"><span>פרויקטים באולפן</span><span class="stat-icon">🎙️</span></div><div class="big" id="projectCount">0</div><div class="tiny">נמצאים בתהליך</div></div>
+    <div class="stat"><div class="stat-top"><span>רעיונות ששמרת</span><span class="stat-icon">💡</span></div><div class="big" id="ideaCount">0</div><div class="tiny">כל רעיון מתחיל ממשהו</div></div>
+    <div class="stat"><div class="stat-top"><span>תרגולי גיטרה</span><span class="stat-icon">🎸</span></div><div class="big" id="practiceCount">0</div><div class="tiny">אימונים שסימנת כהושלמו</div></div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card"><div class="card-head"><div><h3>המשימות שלי להיום</h3><p class="card-desc">התקדמות קטנה בכל יום</p></div><button class="linkbtn" data-goto="planner">לכל המשימות ←</button></div><div class="task-list" id="homeTasks"></div><div class="quick-add"><input id="quickTask" placeholder="משימה חדשה..." maxlength="120"><button class="btn" id="quickAddBtn">הוספה</button></div></div>
+      <div class="card"><div class="card-head"><div><h3>מה בא לך ליצור?</h3><p class="card-desc">שמרי רעיון לפני שהוא נעלם</p></div><button class="linkbtn" data-goto="notes">למחברת ←</button></div><div id="homeIdeas" class="item-list"></div><div class="note">המידע נשמר בדפדפן במכשיר הזה. מומלץ לייצא גיבוי מדי פעם.</div></div>
+    </div>
+    <div>
+      <div class="card"><div class="card-head"><div><h3>היעדים השבועיים</h3><p class="card-desc">גמישות עדיפה על שלמות</p></div><button class="linkbtn" data-goto="goals">עריכה ←</button></div><div id="homeGoals"></div></div>
+      <div class="card"><div class="card-head"><div><h3>קיצורי דרך</h3></div></div><div class="item-list">
+        <button class="task" data-goto="guitar"><span>🎸</span><span class="task-title">לתעד אימון גיטרה</span><span>←</span></button>
+        <button class="task" data-goto="studio"><span>🎙️</span><span class="task-title">לפתוח פרויקט באולפן</span><span>←</span></button>
+        <button class="task" data-goto="notes"><span>✍️</span><span class="task-title">לשמור רעיון או ציור</span><span>←</span></button>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="page-planner">
+  <div class="section-intro"><h2>משימות ותכנון 📅</h2><p>כל ההתחייבויות שלך מסודרות, בלי להעמיס על היום.</p></div>
+  <div class="card"><div class="form-row"><div class="field"><label>משימה חדשה</label><input id="taskInput" placeholder="למשל: לתרגל מעבר בין אקורדים"></div><div class="field"><label>תחום</label><select id="taskCategory"><option value="life">אישי</option><option value="work">עבודה</option><option value="music">מוזיקה / יצירה</option></select></div></div><button class="btn" id="addTaskBtn">+ הוספת משימה</button></div>
+  <div class="card"><div class="card-head"><h3>רשימת המשימות</h3><button class="btn secondary small" id="clearDone">ניקוי משימות שהושלמו</button></div><div id="allTasks" class="task-list"></div></div>
+  <div class="card"><div class="card-head"><div><h3>תכנון שבועי</h3><p class="card-desc">אפשר להוסיף פעילות לכל יום.</p></div></div><div class="form-row"><div class="field"><label>יום</label><select id="weekDay"><option>ראשון</option><option>שני</option><option>שלישי</option><option>רביעי</option><option>חמישי</option><option>שישי</option><option>שבת</option></select></div><div class="field"><label>פעילות</label><input id="weekActivity" placeholder="למשל: 20 דקות גיטרה"></div></div><button class="btn" id="addWeekBtn">הוספה לשבוע</button><div class="note">אפשר לשנות ולמחוק פעילויות בהמשך. התכנון נשמר במכשיר הזה.</div><div class="week-grid" id="weekGrid" style="margin-top:18px"></div></div>
+</section>
+
+<section class="page" id="page-guitar">
+  <div class="section-intro"><h2>לימודי גיטרה 🎸</h2><p>מעקב פשוט אחר מה שלמדת, מה תרגלת ומה עוד תרצי לחזק.</p></div>
+  <div class="card"><div class="form-row"><div class="field"><label>מה תרגלת?</label><input id="practiceInput" placeholder="למשל: G–D–Em–C, מעבר חלק"></div><div class="field"><label>משך התרגול בדקות</label><input id="practiceMinutes" type="number" min="1" max="300" value="20"></div></div><button class="btn" id="addPracticeBtn">סיום ותיעוד אימון ✓</button></div>
+  <div class="stats"><div class="stat"><div class="stat-top">אימונים שהושלמו</div><div class="big" id="guitarTotal">0</div></div><div class="stat"><div class="stat-top">דקות תרגול</div><div class="big" id="guitarMinutes">0</div></div></div>
+  <div class="card"><div class="card-head"><h3>יומן האימונים</h3></div><div id="practiceList" class="item-list"></div></div>
+  <div class="card"><div class="card-head"><h3>אקורדים / נושאים לחיזוק</h3></div><div class="field"><label>הוסיפי נושא שאת רוצה לתרגל</label><div class="quick-add"><input id="chordInput" placeholder="למשל: F, פריטות, קצב 3/4"><button class="btn" id="addChordBtn">הוספה</button></div></div><div id="chordList" class="item-list"></div></div>
+</section>
+
+<section class="page" id="page-studio">
+  <div class="section-intro"><h2>פרויקטים באולפן 🎙️</h2><p>סקיצות, משימות וסטטוס לכל פרויקט מוזיקלי.</p></div>
+  <div class="card"><div class="form-row"><div class="field"><label>שם הפרויקט</label><input id="projectInput" placeholder="למשל: שיר חדש — סקיצה"></div><div class="field"><label>שלב נוכחי</label><select id="projectStatus"><option>רעיון</option><option>הקלטה</option><option>עריכה</option><option>מיקס</option><option>מאסטרינג</option><option>הושלם</option></select></div></div><div class="field"><label>הערות ומשימות</label><textarea id="projectNotes" placeholder="מה כבר עשית? מה נשאר?"></textarea></div><button class="btn" id="addProjectBtn">+ יצירת פרויקט</button></div>
+  <div class="cards-grid" id="projectList"></div>
+</section>
+
+<section class="page" id="page-notes">
+  <div class="section-intro"><h2>מחברת היצירה ✍️</h2><p>מקום אחד לטקסטים, רעיונות לשירים, ציורים והשראה.</p></div>
+  <div class="card"><div class="form-row"><div class="field"><label>כותרת</label><input id="noteTitle" placeholder="שם הרעיון"></div><div class="field"><label>סוג</label><select id="noteType"><option>רעיון לשיר</option><option>כתיבה</option><option>ציור</option><option>השראה</option><option>אחר</option></select></div></div><div class="field"><label>תוכן / תיאור</label><textarea id="noteContent" placeholder="כתבי כאן בחופשיות..."></textarea></div><button class="btn" id="addNoteBtn">שמירת רעיון</button><div class="note">אפשר לכתוב גם תיאור של ציור ולצרף קישור לקובץ ששמור אצלך. העלאת קבצים ישירה אינה מופעלת בגרסה הראשונית.</div></div>
+  <div class="field"><input class="search" id="noteSearch" placeholder="חיפוש במחברת..."></div><div class="cards-grid" id="noteList"></div>
+</section>
+
+<section class="page" id="page-goals">
+  <div class="section-intro"><h2>המטרות שלי ✧</h2><p>בחרי יעדים שאפשר לעמוד בהם גם בשבוע עמוס.</p></div>
+  <div class="card"><div class="card-head"><h3>יעדים לשבוע</h3></div><div id="goalEditor"></div><div class="note">עדכני את המספרים בהתאם לזמן שבאמת יש לך. ההתקדמות מתעדכנת לפי סימונים באפליקציה.</div></div>
+  <div class="card"><div class="card-head"><h3>גיבוי הנתונים</h3></div><p class="card-desc" style="margin-bottom:14px">הנתונים נשמרים מקומית בדפדפן. אפשר להוריד קובץ גיבוי או לייבא גיבוי קודם.</p><button class="btn" id="exportBtn">הורדת גיבוי JSON</button> <label class="btn secondary" for="importFile" style="display:inline-block">ייבוא גיבוי</label><input type="file" id="importFile" accept=".json,application/json" hidden><button class="btn secondary" id="resetBtn" style="margin-right:8px">איפוס כל הנתונים</button></div>
+</section>
+<footer class="note" style="text-align:center;padding:8px 0 20px">MY LIFE STUDIO · גרסה ראשונית אישית · הנתונים נשמרים בדפדפן שלך</footer>
+</main>
+</div>
+<nav class="mobile-nav" id="mobileNav"><button class="active" data-page="home"><span>⌂</span>בית</button><button data-page="planner"><span>▦</span>תכנון</button><button data-page="guitar"><span>🎸</span>גיטרה</button><button data-page="studio"><span>🎙️</span>אולפן</button><button data-page="notes"><span>✍️</span>יצירה</button><button data-page="goals"><span>✧</span>יעדים</button></nav>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='myLifeStudio.v1';
+const defaultState={tasks:[],projects:[],notes:[],practices:[],chords:[],week:[],goals:[{name:'תרגול גיטרה',target:3,done:0},{name:'זמן באולפן',target:2,done:0},{name:'כתיבה או ציור',target:2,done:0}]};
+let state;
+try{state={...defaultState,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){state=structuredClone(defaultState)}
+const $=id=>document.getElementById(id);
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(state));renderAll()};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2300)}
+const categories={work:'עבודה',music:'מוזיקה / יצירה',life:'אישי'};
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));window.scrollTo({top:0,behavior:'smooth'});if(page==='notes')renderNotes();if(page==='goals')renderGoals()}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.goto)));
+function taskHTML(t){return `<div class="task ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} aria-label="סימון משימה" onchange="toggleTask('${t.id}')"><span class="task-title">${esc(t.title)}</span><span class="tag ${t.category}">${categories[t.category]||'אישי'}</span><button class="linkbtn" onclick="deleteTask('${t.id}')" aria-label="מחיקה">×</button></div>`}
+window.toggleTask=id=>{const t=state.tasks.find(x=>x.id===id);if(t)t.done=!t.done;save()};
+window.deleteTask=id=>{state.tasks=state.tasks.filter(x=>x.id!==id);save()};
+function addTask(title,category='life'){title=title.trim();if(!title)return toast('כתבי קודם מה צריך לעשות');state.tasks.unshift({id:uid(),title,category,done:false,created:new Date().toISOString()});$('taskInput').value='';$('quickTask').value='';save();toast('המשימה נוספה ✓')}
+$('quickAddBtn').onclick=()=>addTask($('quickTask').value,'life');$('quickTask').addEventListener('keydown',e=>{if(e.key==='Enter')addTask(e.target.value,'life')});
+$('addTaskBtn').onclick=()=>addTask($('taskInput').value,$('taskCategory').value);
+$('clearDone').onclick=()=>{state.tasks=state.tasks.filter(t=>!t.done);save();toast('המשימות שהושלמו הוסרו')};
+function renderTasks(){$('homeTasks').innerHTML=state.tasks.filter(t=>!t.done).slice(0,5).map(taskHTML).join('')||'<div class="empty">אין משימות פתוחות כרגע. אפשר ליהנות מקצת מרווח ✨</div>';$('allTasks').innerHTML=state.tasks.map(taskHTML).join('')||'<div class="empty">עדיין אין משימות. הוסיפי את הראשונה למעלה.</div>';$('openCount').textContent=state.tasks.filter(t=>!t.done).length}
+function addPractice(){const title=$('practiceInput').value.trim();if(!title)return toast('כתבי מה תרגלת');const mins=Math.max(1,Math.min(300,Number($('practiceMinutes').value)||20));state.practices.unshift({id:uid(),title,mins,date:new Date().toISOString()});$('practiceInput').value='';save();toast('האימון נשמר. כל הכבוד!')}
+$('addPracticeBtn').onclick=addPractice;
+function renderPractices(){$('practiceList').innerHTML=state.practices.map(p=>`<div class="task"><span>🎸</span><div class="task-title"><strong>${esc(p.title)}</strong><div class="note">${new Date(p.date).toLocaleDateString('he-IL')} · ${p.mins} דקות</div></div><button class="linkbtn" onclick="deletePractice('${p.id}')">×</button></div>`).join('')||'<div class="empty">אחרי האימון הראשון, הוא יופיע כאן.</div>';$('guitarTotal').textContent=state.practices.length;$('guitarMinutes').textContent=state.practices.reduce((a,p)=>a+p.mins,0);$('practiceCount').textContent=state.practices.length}
+window.deletePractice=id=>{state.practices=state.practices.filter(p=>p.id!==id);save()};
+$('addChordBtn').onclick=()=>{const v=$('chordInput').value.trim();if(!v)return;state.chords.unshift({id:uid(),title:v});$('chordInput').value='';save()};
+window.deleteChord=id=>{state.chords=state.chords.filter(x=>x.id!==id);save()};
+function renderChords(){$('chordList').innerHTML=state.chords.map(c=>`<div class="task"><span>🎯</span><span class="task-title">${esc(c.title)}</span><button class="linkbtn" onclick="deleteChord('${c.id}')">×</button></div>`).join('')||'<div class="empty">כאן יופיעו אקורדים ונושאים לחיזוק.</div>'}
+$('addProjectBtn').onclick=()=>{const title=$('projectInput').value.trim();if(!title)return toast('תני לפרויקט שם');state.projects.unshift({id:uid(),title,status:$('projectStatus').value,notes:$('projectNotes').value.trim(),date:new Date().toISOString()});$('projectInput').value='';$('projectNotes').value='';save();toast('הפרויקט נוצר')};
+window.deleteProject=id=>{state.projects=state.projects.filter(p=>p.id!==id);save()};
+window.updateProject=(id,val)=>{const p=state.projects.find(x=>x.id===id);if(p){p.status=val;save()}};
+function renderProjects(){$('projectList').innerHTML=state.projects.map(p=>`<article class="project"><div class="project-foot"><span>🎙️ ${esc(p.status)}</span><button class="linkbtn" onclick="deleteProject('${p.id}')">מחיקה ×</button></div><h4>${esc(p.title)}</h4><p>${esc(p.notes||'אין הערות עדיין.')}</p><div class="field"><label>עדכון שלב</label><select onchange="updateProject('${p.id}',this.value)">${['רעיון','הקלטה','עריכה','מיקס','מאסטרינג','הושלם'].map(s=>`<option ${s===p.status?'selected':''}>${s}</option>`).join('')}</select></div><div class="project-foot"><span>נוצר ${new Date(p.date).toLocaleDateString('he-IL')}</span></div></article>`).join('')||'<div class="empty" style="grid-column:1/-1">אין פרויקטים עדיין. התחילי עם סקיצה אחת שאת רוצה לקדם.</div>';$('projectCount').textContent=state.projects.filter(p=>p.status!=='הושלם').length}
+$('addNoteBtn').onclick=()=>{const title=$('noteTitle').value.trim(),content=$('noteContent').value.trim();if(!title&&!content)return toast('הוסיפי כותרת או תוכן');state.notes.unshift({id:uid(),title:title||'רעיון ללא כותרת',type:$('noteType').value,content,date:new Date().toISOString()});$('noteTitle').value='';$('noteContent').value='';save();toast('הרעיון נשמר ✨')};
+window.deleteNote=id=>{state.notes=state.notes.filter(n=>n.id!==id);save()};
+function renderNotes(){const q=($('noteSearch')?.value||'').toLowerCase();const ns=state.notes.filter(n=>(n.title+' '+n.content+' '+n.type).toLowerCase().includes(q));$('noteList').innerHTML=ns.map(n=>`<article class="project"><div class="project-foot"><span>✦ ${esc(n.type)}</span><button class="linkbtn" onclick="deleteNote('${n.id}')">מחיקה ×</button></div><h4>${esc(n.title)}</h4><p>${esc(n.content||'אין תוכן נוסף.')}</p><div class="project-foot"><span>${new Date(n.date).toLocaleDateString('he-IL')}</span></div></article>`).join('')||'<div class="empty" style="grid-column:1/-1">המחברת מחכה לרעיון הראשון שלך.</div>';$('ideaCount').textContent=state.notes.length}
+$('noteSearch').addEventListener('input',renderNotes);
+function renderGoals(){const el=$('goalEditor');el.innerHTML=state.goals.map((g,i)=>`<div class="progress-row"><div class="progress-label"><strong>${esc(g.name)}</strong><span>${g.done} מתוך ${g.target}</span></div><div class="track"><div class="fill" style="width:${Math.min(100,g.target?g.done/g.target*100:0)}%"></div></div><div style="display:flex;gap:8px;margin-top:9px;align-items:center"><button class="btn secondary small" onclick="goalStep(${i},-1)">−</button><button class="btn small" onclick="goalStep(${i},1)">+ סימון התקדמות</button><input aria-label="יעד שבועי" type="number" min="1" max="100" value="${g.target}" onchange="goalTarget(${i},this.value)" style="width:75px;background:#11131b;color:white;border:1px solid #383a4b;border-radius:8px;padding:6px"><span class="note">יעד שבועי</span></div></div>`).join('')}
+window.goalStep=(i,d)=>{state.goals[i].done=Math.max(0,state.goals[i].done+d);save()};
+window.goalTarget=(i,v)=>{state.goals[i].target=Math.max(1,Math.min(100,Number(v)||1));save()};
+function renderHomeGoals(){$('homeGoals').innerHTML=state.goals.map((g,i)=>`<div class="progress-row"><div class="progress-label"><span>${esc(g.name)}</span><span>${g.done}/${g.target}</span></div><div class="track"><div class="fill" style="width:${Math.min(100,g.target?g.done/g.target*100:0)}%"></div></div><div style="text-align:left;margin-top:5px"><button class="linkbtn" onclick="goalStep(${i},1)">+ התקדמות</button></div></div>`).join('')}
+$('addWeekBtn').onclick=()=>{const activity=$('weekActivity').value.trim();if(!activity)return toast('כתבי פעילות');state.week.push({id:uid(),day:$('weekDay').value,activity});$('weekActivity').value='';save();toast('נוסף לתכנון השבועי')};
+window.deleteWeek=id=>{state.week=state.week.filter(w=>w.id!==id);save()};
+function renderWeek(){const days=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];$('weekGrid').innerHTML=days.map(d=>`<div class="day"><strong>${d}</strong><small>${state.week.filter(w=>w.day===d).length} פעילויות</small>${state.week.filter(w=>w.day===d).map(w=>`<span>${esc(w.activity)} <button class="linkbtn" onclick="deleteWeek('${w.id}')" aria-label="מחיקה">×</button></span>`).join('')}</div>`).join('')}
+$('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my-life-studio-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);toast('קובץ הגיבוי ירד')};
+$('importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const parsed=JSON.parse(await f.text());if(!parsed||!Array.isArray(parsed.tasks)||!Array.isArray(parsed.notes))throw new Error();state={...defaultState,...parsed};save();toast('הגיבוי נטען בהצלחה')}catch(err){toast('הקובץ לא נראה כמו גיבוי תקין')}e.target.value=''};
+$('resetBtn').onclick=()=>{if(confirm('למחוק את כל הנתונים השמורים באתר? מומלץ להוריד גיבוי קודם.')){state=structuredClone(defaultState);save();toast('הנתונים אופסו')}};
+function renderAll(){renderTasks();renderPractices();renderChords();renderProjects();renderNotes();renderHomeGoals();renderGoals();renderWeek();$('openCount').textContent=state.tasks.filter(t=>!t.done).length}
+const now=new Date();$('todayDate').textContent=now.toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long'});const hour=now.getHours();$('greeting').textContent=(hour<12?'בוקר טוב':hour<17?'צהריים טובים':hour<21?'ערב טוב':'לילה טוב')+' ✨';
+renderAll();
+</script>
+</body>
+</html>
+<!-- Injection By NetFree -->
+<script src="https://netfree.link/injection-script/note-in-site.js" type="text/javascript" async  id="netfree-note-site" jsondata="%7B%22noteSite%22:%22%D7%9B%D7%93%D7%99%20%D7%A9%D7%94%D7%AA%D7%9E%D7%95%D7%A0%D7%95%D7%AA%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%94%D7%96%D7%94%20%D7%99%D7%97%D7%96%D7%A8%D7%95%20%D7%9E%D7%91%D7%93%D7%99%D7%A7%D7%94%2C%20%D7%99%D7%A9%20%D7%9C%D7%94%D7%92%D7%93%D7%99%D7%A8%20%5C%22%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%A1%D7%A0%D7%9F%20%D7%AA%D7%95%D7%9B%D7%9F%20%D7%A9%D7%99%D7%93%D7%95%D7%A2%20%D7%9B%D7%90%D7%99%D7%A9%D7%99%20%D7%90%D7%95%20%D7%A4%D7%A8%D7%98%D7%99%5C%22%20%D7%91%D7%94%D7%92%D7%93%D7%A8%D7%95%D7%AA%20%D7%A1%D7%99%D7%A0%D7%95%D7%9F%20%5B%5B%D7%A6%D7%90%D7%98_AI_%D7%91%D7%A0%D7%98%D7%A4%D7%A8%D7%99%7C%D7%94%D7%99%D7%9B%D7%A0%D7%A1%D7%95%20%D7%9C%D7%9B%D7%90%D7%9F%20%D7%9C%D7%94%D7%A1%D7%91%D7%A8%20%D7%9E%D7%A4%D7%95%D7%A8%D7%98%5D%5D%22%2C%22noteSiteEn%22:%22For%20images%20on%20this%20website%20to%20work%20you%20need%20to%20set%20%5C%22Filter%20content%20that%20is%20known%20as%20personal%20or%20private%5C%22%20%5B%5BAI_Chats_in_NetFree%7CClick%20here%20to%20read%20more%5D%5D%22%7D"></script><script src="//netfree.link/injection-script/go-payment.js" type="text/javascript" async ></script>
+<script src="//netfree.link/injection-script/popup-card-init.js" type="text/javascript" async ></script>
